@@ -31,7 +31,7 @@ public class ArbolBinario {
     }
 
     private void visitar(Nodo aux){
-        System.out.println(aux.getValor()+" ");
+        System.out.print(aux.getValor()+" ");
 
     }
 
@@ -57,6 +57,37 @@ public class ArbolBinario {
             postorden(aux.getDerecho());
             visitar(aux);
         }
+    }
+    /**
+    * Recorrido por niveles
+    */
+
+    public void recorridoPorNiveles(){
+        cola.Cola<Nodo> cola = new cola.Cola<>();
+        cola.encolar(raiz);
+        while (!cola.esVacia()){
+            Nodo aux = cola.frente();
+            visitar(aux);
+            if(aux.getIzquierdo() !=null)
+                cola.encolar(aux.getIzquierdo());
+            if(aux.getDerecho() !=null)
+                cola.encolar(aux.getDerecho());
+            cola.desencolar();
+        }
+    }
+
+    public void preordenIterativo(){
+        pila.Pila<Nodo> pila = new pila.Pila<>();
+        pila.apilar(raiz);
+        while (!pila.esVacia())
+        {
+            Nodo aux =pila.cima();
+            visitar(aux);
+            pila.retirar();
+            //aqui me quede
+
+        }
+        
     }
 
 

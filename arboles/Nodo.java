@@ -10,14 +10,12 @@ public class Nodo {
         izquierdo = null;
 
     }
-    
 
     public Nodo(Object valor) {
         this.valor = valor;
         this.izquierdo = null;
         this.derecho = null;
     }
-
 
     public Object getValor() {
         return valor;
