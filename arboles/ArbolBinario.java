@@ -84,11 +84,64 @@ public class ArbolBinario {
             Nodo aux =pila.cima();
             visitar(aux);
             pila.retirar();
-            //aqui me quede
+            if (aux.getDerecho() != null)
+                pila.apilar(aux.getDerecho());
+            if(aux.getIzquierdo() !=null)
+                pila.apilar(aux.getIzquierdo());
 
         }
         
     }
+
+    /**
+     * Recorrido inorden version iterativa, utiliza una pila
+     */
+    public void inordenIterativo(){
+        pila.Pila<Nodo> pila = new pila.Pila<>();
+        pila.apilar(raiz);
+        Nodo aux = raiz.getIzquierdo();
+        while (!pila.esVacia() || aux != null ){
+            if(aux != null){
+                pila.apilar(aux);
+                aux = aux.getIzquierdo();
+            }else{
+                aux= pila.cima();
+                pila.retirar();
+                visitar(aux);
+                aux = aux.getDerecho();
+            }
+        }
+
+    }
+
+    /**
+    *Recorrido postorden version iterariva
+    */
+    public void postordenIterativo(){
+        pila.Pila<Nodo> pila = new pila.Pila<>();
+        Nodo aux = raiz;
+        Nodo q = raiz;
+        while (aux != null){
+           //avanza por izquierda y apila los nodos
+           while (aux.getIzquierdo() !=null){
+              pila.apilar(aux);
+              aux=aux.getIzquierdo();
+           }
+           while(aux !=null && (aux.getDerecho() ==null || aux.getDerecho()==q)){
+              visitar(aux);
+              q = aux;
+              if(pila.esVacia())
+                 return;
+              aux = pila.cima();
+              pila.retirar();
+           
+           }
+           pila.apilar(aux);
+           aux = aux.getDerecho();
+        }
+    }
+
+    
 
 
 

@@ -27,6 +27,15 @@ public class ClienteMain {
         System.out.println();
         System.out.println("\nRecorrido por niveles");
         ab.recorridoPorNiveles();
+        System.out.println("\nRecorrido preorden Iterativo");
+        ab.preordenIterativo();
+        System.out.println("\nRecorrido inorden Iterativo");
+        ab.inordenIterativo();
+        System.out.println("\nRecorrido post Iterativo");
+        ab.postordenIterativo();
+        System.out.println();
+        
+
 
 
 
