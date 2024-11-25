@@ -130,5 +130,55 @@ public class ArbolBinarioBusqueda  extends ArbolBinario{
           return localizar(raizSub.getDerecho(), buscado);
     }
 
+    public boolean eliminar(Object valor){
+        Comparable dato = (Comparable)valor;
+        //buscar el nodo a elimina y su antecedor
+        Nodo antecesor = null; //antecesor del noso a eliminar
+        //aux: auxiliar que va recorriendo los nodos, desde la raiz hasta
+        // el nodo a eliminar
+        Nodo aux = raiz; 
+        while(aux !=null){
+            if(dato.esIgual(aux.getValor()))
+               break;
+            antecesor = aux;
+            if(dato.esMenor(aux.getValor()))
+                aux = aux.getIzquierdo();
+            else
+                aux = aux.getDerecho();
+        }
+        //
+        if(aux==null)
+            return false;
+        //si llega a este punto, el nodo a eliminar existe y es aux
+        //y su antecesor es antecesor
+        //Examinar cada caso
+        //1. Si tiene al menos dos hijos, incluso una hoja, reajustas los
+        //enlaces del antecesor
+        if (aux.getIzquierdo() == null)
+            if (((Comparable)aux.getValor()).esMenor(antecesor.getValor()))
+               antecesor.setIzquierdo(aux.getDerecho());
+            else
+               antecesor.setDerecho(aux.getDerecho());
+        else if(aux.getDerecho()==null)
+            if (((Comparable)aux.getValor()).esMenor(antecesor.getValor()))
+    
+               antecesor.setIzquierdo(aux.getIzquierdo());
+            else
+               antecesor.setDerecho(aux.getIzquierdo());
+        else
+            //El nodo a eleminar tiene rama izquiera y rama derecha
+            //2
+            reemplazarPorMayorIzquieda(aux);
+        
+        aux =null;
+        return true;
+
+    }
+
+    private void reemplazarPorMayorIzquieda(Nodo aux){
+        //AQUI ME QUEDUE
+
+    }
+
     
 }
