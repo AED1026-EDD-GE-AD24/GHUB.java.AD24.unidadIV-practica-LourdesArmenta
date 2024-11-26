@@ -24,7 +24,7 @@ public class Entero implements Comparable {
     @Override
     public String toString() {
      
-        return super.toString();
+        return dato +" ";
     }
 
 

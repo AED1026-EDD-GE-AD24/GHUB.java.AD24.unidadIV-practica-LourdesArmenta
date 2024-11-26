@@ -66,9 +66,11 @@ public class ArbolBinarioBusqueda  extends ArbolBinario{
         }else{
             if (dato.esMenor(raizSub.getValor())){
                 Nodo iz = insertarRec(raizSub.getIzquierdo(),dato);
+                raizSub.setIzquierdo(iz);
             }else{
                 if(dato.esMayor(raizSub.getValor())){
                     Nodo dr = insertarRec(raizSub.getDerecho(), dato);
+                    raizSub.setDerecho(dr);
                 }
                 else{
                     //Dato duplicado

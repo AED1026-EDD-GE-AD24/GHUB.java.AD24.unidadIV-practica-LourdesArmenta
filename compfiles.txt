@@ -5,10 +5,12 @@
 ./arboles/ArbolBinario.java
 ./arboles/Nodo.java
 ./arboles/Comparable.java
+./arboles/ClienteMainArbolBinarioBusqueda.java
 ./arboles/Entero.java
 ./arboles/TestComparable.java
 ./arboles/Estudiante.java
 ./arboles/ArbolBinarioBusqueda.java
 ./arboles/ClienteMain.java
+./arboles/BTreePrinter.java
 ./miPrincipal/Principal.java
 ./miTest/AppTest.java
