@@ -168,15 +168,30 @@ public class ArbolBinarioBusqueda  extends ArbolBinario{
         else
             //El nodo a eleminar tiene rama izquiera y rama derecha
             //2
-            reemplazarPorMayorIzquieda(aux);
+            reemplazarPorMayorIzquierda(aux);
         
         aux =null;
         return true;
 
     }
 
-    private void reemplazarPorMayorIzquieda(Nodo aux){
-        //AQUI ME QUEDUE
+    private void reemplazarPorMayorIzquierda(Nodo act){
+         Nodo mayor=act;
+       Nodo ant = act;
+       mayor =act.getIzquierdo();
+       //buscar el mayor de la rama izquierda
+       //ant es el antecesor de mayor
+       while(mayor.getDerecho() != null){
+           ant = mayor;
+           mayor =mayor.getDerecho();
+
+       }
+       act.setValor(mayor.getValor());//reemplazo
+       //reajuste
+       if (ant == act)
+          ant.setIzquierdo(mayor.getIzquierdo());
+       else
+         ant.setDerecho(mayor.getIzquierdo());
 
     }
 
